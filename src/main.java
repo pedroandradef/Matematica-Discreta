@@ -17,11 +17,12 @@ public class main {
         teste2.add("&");
         teste2.add("8");
         teste2.add("-5");
+        teste2.add("A");
 
 
-        teste1.forEach(s -> isEqual(s, teste2, intersecao));
+        teste1.forEach(s -> criaIntercessao(s, teste2, intersecao));
 
-        criaUniao(teste1,teste2,intersecao,uniao);
+        criaUniao(teste1,teste2,uniao);
 
 
 
@@ -31,24 +32,19 @@ public class main {
     }
 
 
-    public static void isEqual(String s, ArrayList<String> array, ArrayList<String> intersecao) {
+    public static void criaIntercessao(String s, ArrayList<String> array, ArrayList<String> intercessao) {
         for (int i = 0; i < array.size(); i++) {
             if (s.equals(array.get(i))) {
-                intersecao.add(s);
+                intercessao.add(s);
             }
         }
     }
 
-    public static void criaUniao(ArrayList<String> conjunto1, ArrayList<String> conjunto2, ArrayList<String> intersecao, HashSet<String> uniao) {
+    public static void criaUniao(ArrayList<String> conjunto1, ArrayList<String> conjunto2, HashSet<String> uniao) {
         for(int i = 0; i < conjunto1.size(); i++)
             uniao.add(conjunto1.get(i));
 
         for(int i = 0; i < conjunto2.size(); i++)
             uniao.add(conjunto2.get(i));
-
-        for (int i = 0; i < intersecao.size(); i++)
-            uniao.add(intersecao.get(i));
-
-
     }
 }
