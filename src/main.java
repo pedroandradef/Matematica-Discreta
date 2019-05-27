@@ -6,7 +6,7 @@ import java.util.Map;
 public class main {
     public static void main(String[] args) {
 
-        Map<String,HashSet<String>> testeMap = new HashMap<String,HashSet<String>>();
+        Map<String,HashSet<String>> testeMap = new HashMap<String,HashSet<String>>(); //Cria um HASH MAP DO TIPO HASHSET
         HashSet<String> teste1 = new HashSet<String>();
         HashSet<String> teste2 = new HashSet<String>();
 
@@ -20,18 +20,18 @@ public class main {
         teste2.add("&");
         teste2.add("8");
         teste2.add("-5");
-        teste2.add("A"
+        teste2.add("A");
         teste2.add("a");
 
 
         //teste1.forEach(s -> criaIntercessao(s, teste2, intersecao));
 
-        testeMap.put("A",teste1);
+        testeMap.put("A",teste1); //Adiciona o HASHSET teste1 no HASHMAP
         System.out.println(testeMap.get("A"));
 
         testeMap.put("B",teste2);
 
-        testeMap.put("C",criaUniao(testeMap.get("A"), testeMap.get("B")));
+        testeMap.put("C",criaUniao(testeMap.get("A"), testeMap.get("B"))); //Chama a funcao de criar uniao dentro da funcao de adicionar HashSet no HashMap.
 
         System.out.println(testeMap.get("C"));
 
@@ -48,7 +48,7 @@ public class main {
         }
     }
 
-    public static HashSet criaUniao(HashSet<String> conjunto1, HashSet<String> conjunto2) {
+    public static HashSet criaUniao(HashSet<String> conjunto1, HashSet<String> conjunto2) {  //Recebe dois Conjuntos que estao dentro do HashMap para criar a uniao
         HashSet<String> uniao = new HashSet<String>();
 
         for(String s : conjunto1)
