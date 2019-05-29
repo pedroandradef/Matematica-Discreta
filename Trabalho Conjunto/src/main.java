@@ -14,10 +14,10 @@ public class main {
 
         teste1.add("8");
         teste1.add("&");
-        teste1.add("-5");
+        teste1.add("10");
+        teste1.add("a");
 
         teste2.add("c");
-        teste2.add("&");
         teste2.add("8");
         teste2.add("-5");
         teste2.add("A");
@@ -35,27 +35,34 @@ public class main {
 
         System.out.println(testeMap.get("C"));
 
+        testeMap.put("D", criaIntersecao(testeMap.get("A"),testeMap.get("B")));
+
+        System.out.println(testeMap.get("D"));
+
     }
 
 
-    public static void criaIntercessao(String s, ArrayList<String> array, ArrayList<String> intercessao) {
+    public static HashSet criaIntersecao(HashSet<String> conjunto1, HashSet<String> conjunto2) {
+        HashSet<String> intersecao = new HashSet<String>();
 
-
-        for (int i = 0; i < array.size(); i++) {
-            if (s.equals(array.get(i))) {
-                intercessao.add(s);
+        for(String s : conjunto1){ //Passa por todos os elementos do primeiro conjunto
+            for (String p : conjunto2){ //Passa por todos elementos do segundo conjunto
+                if (s.equals(p)) //Compara os 2 elementos
+                    intersecao.add(s);
             }
         }
+
+        return intersecao;
+
     }
 
     public static HashSet criaUniao(HashSet<String> conjunto1, HashSet<String> conjunto2) {  //Recebe dois Conjuntos que estao dentro do HashMap para criar a uniao
         HashSet<String> uniao = new HashSet<String>();
 
-        for(String s : conjunto1)
-            uniao.add(s);
+        uniao.addAll(conjunto1);
 
         for(String s : conjunto2)
-            uniao.add(s);
+            uniao.add(s); //Adiciona os elementos do conjunto 2 ao hash sem duplicar os elementos.
 
         return uniao;
     }
